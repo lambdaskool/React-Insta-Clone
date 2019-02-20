@@ -17,11 +17,7 @@ class App extends Component {
 
   componentDidMount(){
     this.setState({data:dummyData}, ()=>{console.log(this.state.data)})
-    setTimeout(()=>
-    {alert('Hello') 
-    this.setState({bully:true}, console.log(this.state.bully)) 
-    }, 3000
-    )
+    // setTimeout(()=> {alert('Hello') this.setState({bully:true}, console.log(this.state.bully)) }, 3000)
   }
 
   //always conditional, causes rerender
