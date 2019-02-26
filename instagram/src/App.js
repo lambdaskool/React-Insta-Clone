@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.setState({data:dummyData}, ()=>{console.log(this.state.data)})
+  this.setState({data:dummyData}, ()=>{/*console.log(this.state.data)*/})
     // setTimeout(()=> {alert('Hello') this.setState({bully:true}, console.log(this.state.bully)) }, 3000)
   }
 
@@ -32,8 +32,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
-    console.log(this.state.bully);
+    // console.log(this.state.data);
+    // console.log(this.state.bully);
     return (
       <div className="App">
         <SearchBar />
