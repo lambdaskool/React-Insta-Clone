@@ -2,34 +2,36 @@ import React, { Component } from 'react';
 import './App.css';
 import './DummyData/dummy-data';
 import dummyData from './DummyData/dummy-data';
-import PostContainer from './components/PostContainer/PostContatiner';
+// import PostContainer from './components/PostContainer/PostContatiner';
 import SearchBar from './components/SearchBar/SearchBar';
+import PostsPage from './components/PostContainer/PostsPage';
+import LoginPage from './components/Login/Login';
 
 
 class App extends Component {
   constructor(){
     super();
     this.state={
-      data : [],
+      dataProps : [],
       bully: false,
     }
   }
 
   componentDidMount(){
-  this.setState({data:dummyData}, ()=>{/*console.log(this.state.data)*/})
+  this.setState({dataProps:dummyData}, ()=>{/*console.log(this.state.data)*/})
     // setTimeout(()=> {alert('Hello') this.setState({bully:true}, console.log(this.state.bully)) }, 3000)
   }
 
-  //always conditional, causes rerender
+  // always conditional, causes rerender
   // componentDidUpdate(){
   //   if(this.state.bully){
   //     console.log('Would Rerender')
   //   }
   // }
 
-  componentWillUnmount(){
-    clearTimeout();
-  }
+  // componentWillUnmount(){
+  //   clearTimeout();
+  // }
 
   render() {
     // console.log(this.state.data);
@@ -37,10 +39,14 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer dataProps = {this.state.data} />
+        {/* <ToShow /> */}
+        <LoginPage />
+        <PostsPage data={this.state.dataProps} />
       </div>
     )
   }
+
+  // const ToShow = withConditionalRender(LoginPage)(PostsPage);
 
   
   

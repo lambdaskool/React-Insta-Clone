@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Comment from './Comment'
+import Comment from './Comment';
+
 
 class CommentSection extends Component {
     constructor(props){
@@ -24,14 +25,7 @@ class CommentSection extends Component {
 
     addNewComment = event => {
         console.log(event);
-        event.preventDefault();
-
-        // console.log(event.target.value);
-        // let newArr = this.state.comments;
-        // newArr.push(event.target.value);
-        // return newArr; 
-        
-        
+        event.preventDefault();        
         this.setState({
             comments: [
                 ...this.state.comments, 
@@ -64,11 +58,6 @@ class CommentSection extends Component {
 
 }
 
-// const CommentSection = props => {
-//     console.log(props.comments);
-//     return <div>{props.comments.map((c, i) =>
-//          <Comment username={c.username} key={i} text={c.text} />
-//     )}</div>;    
-// }
+
 
 export default CommentSection;
