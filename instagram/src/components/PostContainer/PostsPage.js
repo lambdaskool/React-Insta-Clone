@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import PostContainer from '../PostContainer/PostContatiner';
+import dummyData from '../../DummyData/dummy-data';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default class PostsPage extends Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state ={
-            data1: [],
+            dataProps: [],
         }
     }
+
+    componentDidMount(){
+    this.setState({dataProps:dummyData});
+  }
 
     // componentDidMount(){
     //     this.setState({data1:this.props.data})
@@ -16,8 +22,8 @@ export default class PostsPage extends Component {
     render() {
         return (
         <div>
-            <PostContainer data={this.props.data} />
-
+            <SearchBar />
+            <PostContainer data={this.state.dataProps} />
         </div>
         )
     }

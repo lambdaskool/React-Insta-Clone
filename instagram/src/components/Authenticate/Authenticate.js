@@ -1,29 +1,48 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react'
 
-// export default class Authenticate extends Component {
+
+
+const authenticate = PostPage => Login =>
+  class extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        login: false
+
+      }
+    }
     
-//     const withConditionalRender()
 
-//     render() {
-//         return (
-//         <div>
-            
-//         </div>
-//         )
-//     }
+
+    componentDidMount(){
+      if(localStorage.getItem('username')){
+        this.setState({login: true})
+      } else {
+        this.setState({login: false})
+      }
+    }
+
+    render(){
+     
+        if(this.state.login){
+          return <PostPage />
+        } else {
+           return <Login />
+        }
+
+        
+      
+    }
+  }
+
+// const authenticate = PostPage => Login  => props => {
+//   if (localStorage.getItem('user')){
+//     return <PostPage />
+//   } else {
+//     return <Login />
+//   }
 // }
 
 
-import React from 'react';
-// import Login from './component/Login';
+export default authenticate;
 
-
-const withConditionalRender = FirstComponent => SecondComponent => props => {
-   if (localStorage.getItem('user')) {
-     return <FirstComponent />;
-   }
-
-   return <SecondComponent/>;
- };
-
- export default withConditionalRender;

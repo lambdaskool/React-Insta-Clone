@@ -12,7 +12,7 @@ class Login extends React.Component {
 
     signIn = e => {
     e.preventDefault();
-    localStorage.setItem("user", this.state.inputText);
+    localStorage.setItem("username", this.state.inputText);
     window.location.reload();
     };
 
