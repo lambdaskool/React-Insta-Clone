@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
 import './App.css';
 import './DummyData/dummy-data';
-import dummyData from './DummyData/dummy-data';
-import PostContainer from './components/PostContainer/PostContatiner';
-import SearchBar from './components/SearchBar/SearchBar';
+import Login from './components/Login/Login';
+import PostsPage from './components/PostContainer/PostsPage';
+import authenticate from './components/Authenticate/Authenticate'
 
 
 class App extends Component {
   constructor(){
     super();
     this.state={
-      data : dummyData,
+      dataProps : [],
     }
   }
+
+  // componentDidMount(){
+  //   this.setState({dataProps:dummyData});
+  // }
+
+  
+
   render() {
-    return (
-      <div className="App">
-        <SearchBar />
-        <PostContainer dataProps = {this.state.data} />
-      </div>
-    );
+    return(
+      <WithAuthenticate />
+    )
+
+     
+      // <div className="App">
+      //   <SearchBar />
+      //   <LoginPage />
+      //   <PostsPage data={this.state.dataProps} />
+      // </div>
+    
   }
 }
+
+const WithAuthenticate = authenticate(PostsPage)(Login);
+
+
 
 export default App;
